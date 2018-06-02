@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Game of Three</title>
+	<link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+	<div class="got-wrapper">
+		<ul id="events"></ul>
+		<div class="controls">
+			<div class="chat-wrapper">
+				<form action="/">
+					<button id="newGame">New Game!</button>
+				</form>
+			</div>
+
+			<div class="button-wrapper">
+				<button id="minusOne" class="turn" value="-1">-1</button>
+				<button id="zero" class="turn" value="0">0</button>
+				<button id="plusOne" class="turn" value="1">+1</button>
+			</div>
+		</div>
+	</div>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="src/client.js"></script>
+</body>
+
+</html>
