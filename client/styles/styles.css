@@ -4,9 +4,16 @@
 	padding: 0;
 }
 
+@font-face {
+	font-family: "Roboto Mono", "Rubrik", sans-serif;
+	src: url("../fonts/RobotoMono-Bold.ttf") format("ttf"), url("../fonts/RobotoMono-BoldItalic.ttf") format("ttf"), url("../fonts/RobotoMono-Italic.ttf") format("ttf"), url("../fonts/RobotoMono-Light.ttf") format("ttf"), url("../fonts/RobotoMono-LightItalic.ttf") format("ttf"), url("../fonts/RobotoMono-Medium.ttf") format("ttf"), url("../fonts/RobotoMono-MediumItalic.ttf") format("ttf"), url("../fonts/RobotoMono-Regular.ttf") format("ttf"), url("../fonts/RobotoMono-Thin.ttf") format("ttf"), url("../fonts/RobotoMono-ThinItalic.ttf") format("ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+
 html,
 body {
-	font-family: Helvetica Neue, sans-serif;
+	font-family: Roboto Mono, Helvetica Neue, sans-serif;
 	height: 99%;
 }
 
@@ -172,7 +179,6 @@ div.scrolling div.scrolled {
 	background-color: #fff;
 	color: #333;
 	cursor: pointer;
-	font-family: Helvetica Neue, sans-serif;
 	letter-spacing: 2px;
 	transition: color 300ms ease, background-color 300ms ease;
 }
@@ -267,27 +273,40 @@ div.scrolling div.scrolled {
 	flex-grow: 1;
 }
 
-.newGame {
-	margin: 0 auto;
-	display: block;
-	background: none;
+.btn {
+	display: inline-block;
+	background: #B24592;
+	background: linear-gradient(to left, #B24592, #F15F79);
+	padding: 15px 40px;
 	border: none;
-	background-color: #ffd03f;
-	width: 318px;
-	-webkit-border-radius: 34px;
-	-moz-border-radius: 34px;
-	-ms-border-radius: 34px;
-	-o-border-radius: 34px;
-	border-radius: 34px;
-	border-bottom: 4px #8f652e solid;
-	font-family: "Ubuntu Bold";
-	font-size: 29px;
-	font-weight: bold;
-	line-height: 100%;
-	color: #143461;
-	text-align: center;
-	box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.55);
-	cursor: pointer;
+	border-radius: 30px;
+	font-family: "Abel", sans-serif;
+	font-size: 20px;
 	text-decoration: none;
-	padding: 17px 0;
+	text-transform: uppercase;
+	color: #ffffff;
+	box-shadow: 0 3px 0 #B24592;
+	cursor: pointer;
+	transition: all 100ms linear;
+}
+
+.btn.btn-fab {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	padding: 0;
+	margin: 20px;
+}
+
+.btn:hover {
+	-moz-transform: translateY(-4px);
+	-o-transform: translateY(-4px);
+	-ms-transform: translateY(-4px);
+	-webkit-transform: translateY(-4px);
+	transform: translateY(-4px);
+	box-shadow: 0 7px 0 #F15F79;
+}
+
+.btn:focus {
+	outline: 0;
 }
