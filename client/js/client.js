@@ -5,13 +5,14 @@ const emitMsg = msg => {
 const appendMsg = msg => {
   const parent = document.querySelector("#events");
   const el = document.createElement("li");
+  el.setAttribute("class", "got__list-item ");
   el.innerHTML = msg;
   parent.appendChild(el);
 };
 
 const gameOver = () => {
-  document.querySelector(".chat-wrapper").style.display = "flex";
-  document.querySelector(".button-wrapper").style.display = "none";
+  document.querySelector(".new-game-wrapper").style.display = "flex";
+  document.querySelector("#fabArea").style.display = "none";
 };
 
 const addButtonListeners = () => {
