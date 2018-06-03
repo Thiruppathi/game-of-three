@@ -45,13 +45,13 @@ Apart from the game rules mentioned above, these are the features I've implement
 
 ---
 
-## Light House Scores
+## [Light House Scores](https://thiruppathi.github.io/game-of-three/light-house-report.html)
 
-[![Lighthouse score: 100/100](https://lighthouse-badge.appspot.com/?score=100&compact&category=PWA)](https://github.com/thiruppathi/game-of-three/light-house-report.html)
-[![Lighthouse score: 100/100](https://lighthouse-badge.appspot.com/?score=100&compact&category=A11y)](https://github.com/thiruppathi/game-of-three/light-house-report.html)
-[![Lighthouse score: 100/100](https://lighthouse-badge.appspot.com/?score=100&compact&category=BestPractices)](https://github.com/thiruppathi/game-of-three/light-house-report.html)
-[![Lighthouse score: 98/100](https://lighthouse-badge.appspot.com/?score=98&compact&category=Performance)](https://github.com/thiruppathi/game-of-three/light-house-report.html)
-[![Lighthouse score: 89/100](https://lighthouse-badge.appspot.com/?score=89&compact&category=SEO)](https://github.com/thiruppathi/game-of-three)
+[![Lighthouse score: 100/100](https://lighthouse-badge.appspot.com/?score=100&compact&category=PWA)](https://thiruppathi.github.io/game-of-three/light-house-report.html#pwa)
+[![Lighthouse score: 100/100](https://lighthouse-badge.appspot.com/?score=100&compact&category=A11y)](https://thiruppathi.github.io/game-of-three/light-house-report.html#accessibility)
+[![Lighthouse score: 100/100](https://lighthouse-badge.appspot.com/?score=100&compact&category=BestPractices)](https://thiruppathi.github.io/game-of-three/light-house-report.html#best-practices)
+[![Lighthouse score: 98/100](https://lighthouse-badge.appspot.com/?score=98&compact&category=Performance)](https://thiruppathi.github.io/game-of-three/light-house-report.html#performance)
+[![Lighthouse score: 89/100](https://lighthouse-badge.appspot.com/?score=89&compact&category=SEO)](https://thiruppathi.github.io/game-of-three/light-house-report.html#seo)
 
 ---
 
