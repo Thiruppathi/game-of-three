@@ -1,5 +1,5 @@
 {
-  "short_name": "Game of Three",
+  "short_name": "GameOfThree",
   "name": "Game of Three",
   "description": "An offline-capable 2 player number game",
   "display": "standalone",
