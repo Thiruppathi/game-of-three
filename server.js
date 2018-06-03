@@ -6,8 +6,9 @@ const app = express();
 const clientPath = `${__dirname}/client`;
 console.log("Serving Application UI from ", clientPath);
 
+// TODO: Configure Min & Max through Game Level (Easy, Medium, Hard)
 const MIN = 3;
-const MAX = 21;
+const MAX = 1000;
 
 app.use(express.static(clientPath)); // Serve Static Files
 
