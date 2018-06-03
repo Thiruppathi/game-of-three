@@ -45,9 +45,13 @@ class GameOfThree {
     if (this._isRightTurn(playerIndex)) {
       this._currentMove = turn;
       if (this._isValidMove()) {
-        this._sendMsgToPlayer(playerIndex, `You sent ${turn}`);
+        this._sendMsgToPlayers(
+          `[ (${turn} + ${
+            this._currentNumber
+          }) / 3 ] = ${this._getNumberForNextMove()}`
+        );
 
-        this._getNumberForNextMove();
+        // this._getNumberForNextMove();
         this._togglePlayer(playerIndex);
         this._endGameIfRequired();
       } else {
@@ -80,13 +84,13 @@ class GameOfThree {
   _togglePlayer(playerIndex) {
     this._currentPlayer = this._waitingPlayer;
     this._waitingPlayer = this._players[playerIndex];
-    this._currentPlayer.emit("message", "Make your Move!");
-    this._currentPlayer.emit("message", this._currentNumber);
+    this._sendMsgToPlayers(`${this._currentNumber}`);
   }
 
   _getNumberForNextMove() {
     let sum = this._addNumbers(this._currentMove);
     this._currentNumber = Math.round(sum / 3);
+    return this._currentNumber;
   }
 
   _isValidMove() {
