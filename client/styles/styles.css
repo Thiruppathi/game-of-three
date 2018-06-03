@@ -7,17 +7,19 @@
 html,
 body {
 	font-family: Helvetica Neue, sans-serif;
+	height: 99%;
 }
 
 body {
-	height: 100vh;
 	background: linear-gradient(to left, #B24592, #F15F79);
+	height: inherit;
+	display: flex;
+	flex-direction: column;
 }
 
 @media screen and (max-width: 500px) {
 	body {
 		height: auto;
-		min-height: 100vh;
 		background: none;
 	}
 }
@@ -64,6 +66,32 @@ body {
 	position: relative;
 	width: 100%;
 	height: 100%;
+}
+
+.got {
+	display: flex;
+	flex: auto;
+	flex-direction: column;
+	max-height: 100%;
+}
+
+div.fixed {
+	flex: none;
+}
+
+div.scrolling {
+	display: flex;
+	flex: auto;
+	overflow-y: auto;
+}
+
+div.bottom {
+	/* align-self: flex-end; */
+}
+
+div.scrolling div.scrolled {
+	display: block;
+	width: 100%;
 }
 
 .got__heading {
@@ -136,10 +164,7 @@ body {
 }
 
 .got__clear {
-	position: absolute;
-	bottom: 40px;
-	text-align: center;
-	width: 100%;
+	display: flex;
 	padding: 20px;
 	border: 0;
 	font-size: 12px;
@@ -158,7 +183,7 @@ body {
 
 @media screen and (max-width: 500px) {
 	.got__clear {
-		position: static;
+		/* position: static; */
 	}
 }
 
