@@ -1,12 +1,11 @@
 let staticCacheName = "got-static-v0";
 let urlsToCache = [
   "./",
-  "./register-sw.js",
   "index.html",
   "js/register-sw.js",
   "js/client.js",
   "styles/styles.css",
-  "favicon.ico",
+  "img/favicon.ico",
   "manifest.json",
   "img/logo-48.png",
   "img/logo-96.png",
