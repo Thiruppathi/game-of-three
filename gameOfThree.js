@@ -1,21 +1,29 @@
 class GameOfThree {
   constructor(player1, player2, startingNumber) {
     this._initGame(player1, player2, startingNumber);
+    this._setupAvatars(player1, player2);
     this._sendWelcomeMsgs(startingNumber);
     this._setupTurnHandler();
   }
 
   _initGame(player1, player2, startingNumber) {
     this._currentNumber = startingNumber;
+    player1["avatar"] = "player1";
+    player2["avatar"] = "player2";
     this._players = [player1, player2];
     this._waitingPlayer = this._players[0];
     this._currentPlayer = this._players[1];
   }
 
+  _setupAvatars(player1, player2) {
+    this._players[0].emit("avatar", "mario");
+    this._players[1].emit("avatar", "mushroom");
+  }
+
   _sendWelcomeMsgs(startingNumber) {
-    this._sendMsgToPlayer(1, startingNumber); // Ask Player 2 to Make the first Move
-    this._sendMsgToPlayer(1, "Make your Move!"); // Ask Player 2 to Make the first Move
-    this._sendMsgToPlayer(0, "Wait for your turn"); // Ask Player 1 to Wait for his turn
+    this._sendMsgToPlayers(startingNumber, "player1"); // Inform Players the first random number
+    this._sendMsgToPlayer(1, "Make your First Move!", "alert"); // Ask Player 2 to Make the first Move
+    this._sendMsgToPlayer(0, "Wait for your turn", "alert"); // Ask Player 1 to Wait for his turn
   }
 
   _setupTurnHandler() {
@@ -26,13 +34,13 @@ class GameOfThree {
     });
   }
 
-  _sendMsgToPlayer(playerIndex, msg) {
-    this._players[playerIndex].emit("message", msg);
+  _sendMsgToPlayer(playerIndex, msg, msgType = "") {
+    this._players[playerIndex].emit("message", msg, msgType);
   }
 
-  _sendMsgToPlayers(msg) {
+  _sendMsgToPlayers(msg, msgType = "") {
     this._players.forEach(player => {
-      player.emit("message", msg);
+      player.emit("message", msg, msgType);
     });
   }
 
@@ -45,10 +53,12 @@ class GameOfThree {
     if (this._isRightTurn(playerIndex)) {
       this._currentMove = turn;
       if (this._isValidMove()) {
+        this._sendMsgToPlayers(turn, this._players[playerIndex].avatar);
         this._sendMsgToPlayers(
           `[ (${turn} + ${
             this._currentNumber
-          }) / 3 ] = ${this._getNumberForNextMove()}`
+          }) / 3 ] = ${this._getNumberForNextMove()}`,
+          "alert"
         );
 
         // this._getNumberForNextMove();
@@ -57,11 +67,16 @@ class GameOfThree {
       } else {
         this._sendMsgToPlayer(
           playerIndex,
-          `${turn} is not a right choice! Retry!`
+          `${turn} is not a right choice! Retry!`,
+          "warning"
         );
       }
     } else {
-      this._waitingPlayer.emit("message", "Please wait for your turn!");
+      this._waitingPlayer.emit(
+        "message",
+        "Please wait for your turn!",
+        "warning"
+      );
     }
   }
 
@@ -72,7 +87,10 @@ class GameOfThree {
   _endGameIfRequired() {
     if (this._isGameOver()) {
       this._sendWinMessage(this._waitingPlayer, this._currentPlayer);
-      this._sendMsgToPlayers("Game Over! Refresh Page to start a New Game!");
+      this._sendMsgToPlayers(
+        "Game Over! Refresh Page to start a New Game!",
+        "alert"
+      );
       this._sendMsgToPlayers("404");
     }
   }
@@ -84,7 +102,7 @@ class GameOfThree {
   _togglePlayer(playerIndex) {
     this._currentPlayer = this._waitingPlayer;
     this._waitingPlayer = this._players[playerIndex];
-    this._sendMsgToPlayers(`${this._currentNumber}`);
+    this._sendMsgToPlayers(`${this._currentNumber}`, "alert");
   }
 
   _getNumberForNextMove() {
@@ -99,8 +117,11 @@ class GameOfThree {
   }
 
   _sendWinMessage(winner, loser) {
-    winner.emit("message", "You Won!");
-    loser.emit("message", "You Lost!");
+    winner.emit("message", "", "trophy center");
+    winner.emit("message", "Congrats! You Won!", "trophyText center");
+    winner.emit("fireWorks");
+    loser.emit("message", "", "loser");
+    loser.emit("message", "Sorry! You Lost!", "loserText center");
   }
 
   _addNumbers(turn) {
